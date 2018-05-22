@@ -25,29 +25,31 @@ public class viewPost extends HttpServlet {
             out.println("<html>");
             out.println("<head>");
             out.println("<title>View Post</title>");
+            //
+            //css
+            //
             out.println("<style>"
-                    +"body{"
-                    +"margin:auto;\n" 
-                    +"width: 50%;"
+                    + "body{"
+                    + "margin:auto;\n"
+                    + "width: 50%;"
                     + "}"
-                        + ".post-box{"
-                            +"border:1px black solid;\n" 
-                            +"display:inline;"
-                        + "}"
+                    + ".post-box{"
+                    + "border:1px black solid;\n"
+                    + "display:inline;"
+                    + "}"
                     + ".cmt-box {\n"
                     + "margin:auto;"
-                    +"overflow-y: hidden;\n" +
-                    " max-height: 1000px;\n"
+                    + "overflow-y: hidden;\n"
+                    + " max-height: 1000px;\n"
                     + "transition: all 0.5s ease-in;"
                     + "padding-left:50px;"
-                    + "border:1px solid black;" 
-                    +
-                    "}"
-                    + ".cmt-box.closed {\n"+
-                    "	max-height: 0;"
-                    + "transition: all 0.5s ease-out;\n" 
-                    + "border:0px solid black;"+
-                    "}"
+                    + "border:1px solid black;"
+                    + "}"
+                    + ".cmt-box.closed {\n"
+                    + "	max-height: 0;"
+                    + "transition: all 0.5s ease-out;\n"
+                    + "border:0px solid black;"
+                    + "}"
                     + "</style>");
             out.println("</head>");
             out.println("<body>");
@@ -55,32 +57,34 @@ public class viewPost extends HttpServlet {
                 //
                 //post
                 //
-                out.println("<div class=\"post-box\">");   
-                    out.println(post.getContent());
-                    out.println("<input id=\"btntoggle_"+post.getId()+"\" type=\"button\" value=\"Show\" onclick=\"toggleComment("+post.getId()+")\" />");
+                out.println("<div class=\"post-box\">");
+                out.println(post.getContent());
+                out.println("<input id=\"btntoggle_" + post.getId() + "\" type=\"button\" value=\"Show\" onclick=\"toggleComment(" + post.getId() + ")\" />");
                 out.println("</div>");
                 out.println("<br/>");
                 //
                 //comment
                 //
-                out.println("<div class=\"cmt-box closed\" id=\"cmtBox_"+post.getId()+"\">");  
-                    for (Comment cmt : post.getComments()) {
-                        out.println("<div>");
-                        out.println(cmt.getContent());
-                        out.println("</div>");
-                    }
+                out.println("<div class=\"cmt-box closed\" id=\"cmtBox_" + post.getId() + "\">");
+                for (Comment cmt : post.getComments()) {
+                    out.println("<div>");
+                    out.println(cmt.getContent());
+                    out.println("</div>");
+                }
                 out.println("</div>");
-                
+
             }
+            //
             //script
+            //
             out.println("<script>");
-                out.println("function toggleComment(id){"
-                        +"document.getElementById('cmtBox_'+id).classList.toggle('closed');"
-                        + "if(document.getElementById('btntoggle_'+id).value==='Show'){"
-                            + "document.getElementById('btntoggle_'+id).value = 'Hidden';"
-                        + "}else{"
-                            + "document.getElementById('btntoggle_'+id).value = 'Show';"
-                            + "}"
+            out.println("function toggleComment(id){"
+                    + "document.getElementById('cmtBox_'+id).classList.toggle('closed');"
+                    + "if(document.getElementById('btntoggle_'+id).value==='Show'){"
+                    + "document.getElementById('btntoggle_'+id).value = 'Hidden';"
+                    + "}else{"
+                    + "document.getElementById('btntoggle_'+id).value = 'Show';"
+                    + "}"
                     + "}");
             out.println("</script>");
             out.println("</body>");
