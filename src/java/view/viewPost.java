@@ -36,7 +36,7 @@ public class viewPost extends HttpServlet {
                         + "}"
                     + ".cmt-box {\n"
                     + "margin:auto;"
-                    +" overflow-y: hidden;\n" +
+                    +"overflow-y: hidden;\n" +
                     " max-height: 1000px;\n"
                     + "transition: all 0.5s ease-in;"
                     + "padding-left:50px;"
@@ -75,13 +75,13 @@ public class viewPost extends HttpServlet {
             //script
             out.println("<script>");
                 out.println("function toggleComment(id){"
-                                + "if(document.getElementById('cmtBox_'+id).style.display === 'inline'){"
-                                    + "document.getElementById('btntoggle_'+id).value = 'Show';"
-                                + "}else{"
-                                    + "document.getElementById('btntoggle_'+id).value = 'Hidden';"
-                                    + "document.getElementById('cmtBox_'+id).classList.toggle('closed');"
-                                    + "}"
-                            + "}");
+                        +"document.getElementById('cmtBox_'+id).classList.toggle('closed');"
+                        + "if(document.getElementById('btntoggle_'+id).value==='Show'){"
+                            + "document.getElementById('btntoggle_'+id).value = 'Hidden';"
+                        + "}else{"
+                            + "document.getElementById('btntoggle_'+id).value = 'Show';"
+                            + "}"
+                    + "}");
             out.println("</script>");
             out.println("</body>");
             out.println("</html>");
